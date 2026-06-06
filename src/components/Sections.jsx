@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { occasions, valueProps, gallery, site } from "@/lib/data";
 import { Icon } from "./Icons";
 import { SectionHeading } from "./ui";
+import Reveal, { CountUp } from "./Reveal";
 
 /* Page hero used on inner pages */
 export function PageHero({ eyebrow, title, subtitle, script }) {
@@ -78,19 +79,20 @@ export function ValueProps() {
         subtitle="Every order is handled with the same care we'd give our own — from the first message to the moment it's unwrapped."
       />
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {valueProps.map((v) => (
-          <div
+        {valueProps.map((v, i) => (
+          <Reveal
             key={v.title}
-            className="rounded-2xl border border-rose/10 bg-cream p-7 text-center transition-shadow hover:shadow-md"
+            delay={i * 90}
+            className="group rounded-2xl border border-rose/10 bg-cream p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-rose/20 hover:shadow-lg"
           >
-            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blush text-rose">
+            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-blush text-rose transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
               <Icon name={v.icon} />
             </span>
             <h3 className="mt-5 font-display text-xl text-forest">{v.title}</h3>
             <p className="mt-2 font-body text-sm font-normal leading-relaxed text-forest/65">
               {v.desc}
             </p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
@@ -139,6 +141,130 @@ export function InstagramStrip() {
             {site.instagram}
           </a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* Animated stats band — counters tick up on scroll */
+const stats = [
+  { to: 100, suffix: "+", label: "Happy clients", icon: "heart" },
+  { to: 500, suffix: "+", label: "Gifts curated", icon: "gift" },
+  { to: 6, suffix: "", label: "Areas across Abuja", icon: "truckFast" },
+  { to: 100, suffix: "%", label: "Made personal", icon: "sparkle" },
+];
+
+export function StatsBand() {
+  return (
+    <section className="relative overflow-hidden bg-blush py-16 md:py-20">
+      <div className="pointer-events-none absolute -left-16 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-coral/15 blur-[100px]" />
+      <div className="pointer-events-none absolute -right-16 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-rose/10 blur-[100px]" />
+      <div className="container-px relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 gap-y-10 gap-x-6 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal
+              key={s.label}
+              delay={i * 90}
+              className="flex flex-col items-center text-center"
+            >
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cream text-rose shadow-sm">
+                <Icon name={s.icon} />
+              </span>
+              <CountUp
+                to={s.to}
+                suffix={s.suffix}
+                className="mt-4 font-display text-4xl text-forest md:text-5xl"
+              />
+              <span className="mt-1.5 font-body text-xs font-bold uppercase tracking-[0.14em] text-forest/60">
+                {s.label}
+              </span>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* How it works — three clean, connected steps */
+const steps = [
+  {
+    icon: "sparkle",
+    title: "Tell us the occasion",
+    desc: "Share who it's for, the vibe and your budget — on WhatsApp or our quick form.",
+  },
+  {
+    icon: "box",
+    title: "We curate & wrap",
+    desc: "We hand-pick each piece and finish it with premium, photo-ready packaging.",
+  },
+  {
+    icon: "truckFast",
+    title: "We deliver",
+    desc: "Same-day across Abuja — beautifully presented, right to their door.",
+  },
+];
+
+export function ProcessSteps() {
+  return (
+    <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
+      <SectionHeading
+        eyebrow="How it works"
+        title="Gifting in three easy steps"
+        subtitle="From the first message to the moment it's unwrapped — we handle every detail."
+      />
+      <div className="relative mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+        {/* connecting line */}
+        <div className="pointer-events-none absolute inset-x-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-rose/30 to-transparent md:block" />
+        {steps.map((s, i) => (
+          <Reveal
+            key={s.title}
+            delay={i * 120}
+            className="relative flex flex-col items-center text-center"
+          >
+            <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-rose text-cream shadow-lg shadow-rose/30">
+              <Icon name={s.icon} />
+              <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-cream bg-forest font-body text-[0.7rem] font-bold text-cream">
+                {i + 1}
+              </span>
+            </span>
+            <h3 className="mt-6 font-display text-xl text-forest">{s.title}</h3>
+            <p className="mt-2 max-w-xs font-body text-sm font-normal leading-relaxed text-forest/65">
+              {s.desc}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* Moving marquee ribbon of occasions — pauses on hover */
+export function Marquee() {
+  const items = [
+    "Birthdays",
+    "Weddings",
+    "Bridal Showers",
+    "Corporate Gifts",
+    "Anniversaries",
+    "Just Because",
+  ];
+  const row = [...items, ...items]; // duplicated for a seamless loop
+  return (
+    <section
+      aria-hidden="true"
+      className="marquee-paused overflow-hidden border-y border-rose-deep/30 bg-rose py-4"
+    >
+      <div className="flex w-max animate-marquee whitespace-nowrap">
+        {row.map((it, i) => (
+          <span
+            key={i}
+            className="mx-7 inline-flex items-center gap-7 font-display text-lg text-cream md:text-2xl"
+          >
+            {it}
+            <span className="text-coral">✦</span>
+          </span>
+        ))}
       </div>
     </section>
   );

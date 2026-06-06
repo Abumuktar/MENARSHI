@@ -1,6 +1,13 @@
 import { founder } from "@/lib/data";
 import { Button } from "./ui";
 import { Icon } from "./Icons";
+import Reveal, { CountUp } from "./Reveal";
+
+/* "100+" -> { to: 100, suffix: "+" } so the stat can count up */
+function parseStat(value) {
+  const m = String(value).match(/^(\d+)(.*)$/);
+  return m ? { to: parseInt(m[1], 10), suffix: m[2] } : { to: 0, suffix: value };
+}
 
 /*
   Founder showcase — Gargadi-style composition (pill eyebrow, hover-lift
@@ -13,7 +20,7 @@ import { Icon } from "./Icons";
 export default function FounderSection({ showLink = true, className = "" }) {
   return (
     <section className={`container-px mx-auto max-w-7xl py-20 md:py-28 ${className}`}>
-      <div className="group relative grid items-center gap-10 overflow-hidden rounded-[2.5rem] border border-rose/10 bg-cream p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_18px_50px_rgba(47,74,58,0.08)] transition-shadow duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_28px_70px_rgba(47,74,58,0.12)] md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10">
+      <Reveal className="group relative grid items-center gap-10 overflow-hidden rounded-[2.5rem] border border-rose/10 bg-cream p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_18px_50px_rgba(47,74,58,0.08)] transition-shadow duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_28px_70px_rgba(47,74,58,0.12)] md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10">
         {/* soft brand glow */}
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-coral/15 blur-[90px]" />
 
@@ -67,22 +74,27 @@ export default function FounderSection({ showLink = true, className = "" }) {
 
           {/* Stats */}
           <dl className="mt-7 grid grid-cols-3 gap-3">
-            {founder.stats.map((s) => (
+            {founder.stats.map((s) => {
+              const { to, suffix } = parseStat(s.value);
+              return (
               <div
                 key={s.label}
                 className="rounded-2xl border border-rose/10 bg-cream px-3 py-4 text-center"
               >
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block font-display text-2xl text-rose md:text-3xl">
-                    {s.value}
-                  </span>
+                  <CountUp
+                    to={to}
+                    suffix={suffix}
+                    className="block font-display text-2xl text-rose md:text-3xl"
+                  />
                   <span className="mt-1 block font-body text-[0.68rem] font-bold uppercase tracking-[0.12em] text-forest/60">
                     {s.label}
                   </span>
                 </dd>
               </div>
-            ))}
+              );
+            })}
           </dl>
 
           {showLink && (
@@ -94,7 +106,7 @@ export default function FounderSection({ showLink = true, className = "" }) {
             </div>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

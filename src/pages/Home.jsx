@@ -1,8 +1,16 @@
 import { products, site, waLink, testimonials } from "@/lib/data";
 import { Button, SectionHeading, Stars } from "@/components/ui";
-import { OccasionsStrip, ValueProps, InstagramStrip } from "@/components/Sections";
+import {
+  OccasionsStrip,
+  ValueProps,
+  InstagramStrip,
+  StatsBand,
+  ProcessSteps,
+  Marquee,
+} from "@/components/Sections";
 import FounderSection from "@/components/FounderSection";
 import ProductCard from "@/components/ProductCard";
+import Reveal from "@/components/Reveal";
 import { WhatsAppIcon } from "@/components/WhatsAppFab";
 import { Icon } from "@/components/Icons";
 
@@ -16,7 +24,7 @@ export default function Home() {
         {/* Faint background image — kept as a soft mood, not a backdrop you read over */}
         <div className="absolute inset-0 -z-20">
           <img
-            src="/images/bento_main.png"
+            src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1920&q=80"
             alt=""
             aria-hidden="true"
             className="animate-kenburns h-full w-full object-cover object-center"
@@ -111,9 +119,12 @@ export default function Home() {
       <div id="featured" />
       <OccasionsStrip />
 
+      {/* ---------- STATS ---------- */}
+      <StatsBand />
+
       {/* ---------- FEATURED ---------- */}
       <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
+        <Reveal className="flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
             align="left"
             eyebrow="Handpicked for you"
@@ -124,26 +135,32 @@ export default function Home() {
           <Button href="/shop" variant="secondary" className="shrink-0">
             View all
           </Button>
-        </div>
+        </Reveal>
         <div className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCard key={p.slug} product={p} />
+          {featured.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 90}>
+              <ProductCard product={p} />
+            </Reveal>
           ))}
         </div>
       </section>
 
+      {/* ---------- MARQUEE RIBBON ---------- */}
+      <Marquee />
+
       {/* ---------- BRAND STORY BAND ---------- */}
       <section className="relative overflow-hidden bg-forest text-cream">
-        <div className="container-px mx-auto grid max-w-7xl items-center gap-12 py-20 md:grid-cols-2 md:py-28">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-cream/20 shadow-2xl">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-coral/15 blur-[120px]" />
+        <div className="container-px relative mx-auto grid max-w-7xl items-center gap-12 py-20 md:grid-cols-2 md:py-28">
+          <Reveal className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-cream/20 shadow-2xl">
             <img
               src="/images/brand_story.png"
               alt="Hands holding a wrapped Meenarshi's hamper"
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
             />
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={120}>
             <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.3em] text-coral">
               Our story
             </p>
@@ -161,19 +178,22 @@ export default function Home() {
                 Read our story
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ---------- FOUNDER ---------- */}
       <FounderSection />
 
+      {/* ---------- HOW IT WORKS ---------- */}
+      <ProcessSteps />
+
       {/* ---------- WHY ---------- */}
       <ValueProps />
 
       {/* ---------- TESTIMONIAL TEASER ---------- */}
       <section className="bg-blush py-20 md:py-24">
-        <div className="container-px mx-auto max-w-4xl text-center">
+        <Reveal className="container-px mx-auto max-w-4xl text-center">
           <Stars className="justify-center" />
           <p className="mt-6 font-display text-2xl italic leading-snug text-forest md:text-3xl lg:text-4xl">
             &ldquo;{testimonials[2].quote}&rdquo;
@@ -189,7 +209,7 @@ export default function Home() {
               Read more reviews
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ---------- INSTAGRAM ---------- */}
@@ -197,9 +217,9 @@ export default function Home() {
 
       {/* ---------- FINAL CTA ---------- */}
       <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-rose px-8 py-16 text-center text-cream md:px-16 md:py-20">
-          <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cream/10" />
-          <div className="pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-forest/20" />
+        <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-rose px-8 py-16 text-center text-cream md:px-16 md:py-20">
+          <div className="animate-drift pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cream/10" />
+          <div className="animate-drift pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-forest/20" />
           <h2 className="relative font-display text-3xl text-cream md:text-5xl">
             Ready to send something unforgettable?
           </h2>
@@ -223,7 +243,7 @@ export default function Home() {
               Customize a gift
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
