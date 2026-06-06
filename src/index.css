@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Meenarshi's Gift Gallery — Brand Theme
+   Forest Green · Dusty Rose · Blush Pink · Coral Pink · Warm White
+   ============================================================ */
+
+@theme {
+  --color-forest: #2f4a3a;
+  --color-forest-deep: #213729;
+  --color-rose: #c25d72;
+  --color-rose-deep: #a8455c;
+  --color-blush: #f7e6e8;
+  --color-coral: #ee8595;
+  --color-cream: #fffaf9;
+
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+:root {
+  --display: "DM Serif Display", Georgia, serif;
+  --body: "DM Sans", system-ui, sans-serif;
+  --script: "Great Vibes", cursive;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-forest);
+    font-family: var(--body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--display);
+    font-weight: 400;
+    color: var(--color-forest);
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background-color: var(--color-coral);
+    color: var(--color-cream);
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--display); }
+  .font-body { font-family: var(--body); }
+  .font-script { font-family: var(--script); }
+
+  .container-px {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-px { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-px { padding-left: 4rem; padding-right: 4rem; }
+  }
+
+  /* Subtle reveal-on-load animation */
+  .fade-up {
+    animation: fadeUp 0.7s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Staggered reveal for hero elements */
+  .reveal {
+    opacity: 0;
+    animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  /* Slow Ken Burns zoom for background imagery */
+  .animate-kenburns {
+    animation: kenBurns 22s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.16); }
+  }
+
+  /* Gentle float (scroll cue, accents) */
+  .animate-float {
+    animation: floaty 2.4s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* Soft pulsing glow ring */
+  .animate-softpulse {
+    animation: softPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes softPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.35); }
+  }
+
+  /* Shine sweep on hover (buttons / cards) */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(
+      100deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%
+    );
+  }
+  .shine:hover::after {
+    transform: translateX(120%);
+    transition: transform 0.8s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .fade-up, .animate-kenburns, .animate-float, .animate-softpulse {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Custom scrollbar to match brand */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-blush); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-rose);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-rose-deep); }
