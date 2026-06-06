@@ -123,7 +123,7 @@ export const products = [
     price: "₦45,000",
     priceValue: 45000,
     short: "Luxurious treats & a personalised keepsake to make their day.",
-    image: img("photo-1549465220-1a8b9238cd48"),
+    image: img("photo-1513201099705-a9746e1e201f"),
   },
   {
     slug: "forever-wedding-set",
@@ -150,7 +150,7 @@ export const products = [
     price: "Enquire for Price",
     priceValue: 0,
     short: "Your brand, beautifully wrapped — optional branded packaging.",
-    image: img("photo-1513885535751-8b9238bd345a"),
+    image: img("photo-1481437156560-3205f6a55735"),
   },
   {
     slug: "just-because-bouquet-box",
@@ -159,7 +159,7 @@ export const products = [
     price: "₦30,000",
     priceValue: 30000,
     short: "A little reminder that they're loved — no occasion needed.",
-    image: img("photo-1561181286-d3fee7d55364"),
+    image: img("photo-1608755728617-aefab37d2edd"),
   },
   {
     slug: "signature-custom-hamper",
@@ -168,7 +168,7 @@ export const products = [
     price: "From ₦40,000",
     priceValue: 40000,
     short: "Built around your story — choose every detail with us.",
-    image: img("photo-1607083206968-13611e3d76db"),
+    image: img("photo-1578985545062-69928b1d9587"),
   },
   {
     slug: "sweet-celebration-tower",
@@ -177,7 +177,7 @@ export const products = [
     price: "₦52,000",
     priceValue: 52000,
     short: "Layers of indulgence stacked into one show-stopping gift.",
-    image: img("photo-1535254973040-607b474cb50d"),
+    image: img("photo-1512909006721-3d6018887383"),
   },
   {
     slug: "golden-anniversary-hamper",
@@ -196,7 +196,7 @@ export const hampers = [
     name: "The Meenarshi Signature",
     price: "₦95,000",
     desc: "Our flagship hamper — premium chocolates, a scented candle, fine teas, a silk-wrapped keepsake and fresh florals, presented in our signature forest-green box.",
-    image: img("photo-1549465220-1a8b9238cd48", 1000),
+    image: img("photo-1513201099705-a9746e1e201f", 1000),
     tags: ["Bestseller", "Premium"],
   },
   {
@@ -204,7 +204,7 @@ export const hampers = [
     name: "The Sweetheart Set",
     price: "₦48,000",
     desc: "Romantic and warm — artisan treats, a handwritten note card, a soft plush and a single preserved rose. Perfect for anniversaries and just-because moments.",
-    image: img("photo-1561181286-d3fee7d55364", 1000),
+    image: img("photo-1608755728617-aefab37d2edd", 1000),
     tags: ["Romance"],
   },
   {
@@ -212,7 +212,7 @@ export const hampers = [
     name: "The Celebration Hamper",
     price: "₦58,000",
     desc: "Bright, joyful and generous — a curated mix of sweets, sparkling drink, balloons and a personalised banner for birthdays worth remembering.",
-    image: img("photo-1535254973040-607b474cb50d", 1000),
+    image: img("photo-1512909006721-3d6018887383", 1000),
     tags: ["Birthday"],
   },
   {
@@ -220,7 +220,7 @@ export const hampers = [
     name: "The Executive Set",
     price: "Custom quote",
     desc: "Corporate gifting done right — premium hampers with optional branded packaging for clients, staff and partners. Volume orders welcome.",
-    image: img("photo-1513885535751-8b9238bd345a", 1000),
+    image: img("photo-1481437156560-3205f6a55735", 1000),
     tags: ["Corporate"],
   },
 ];
@@ -282,12 +282,12 @@ export const occasionCopy = {
 };
 
 export const gallery = [
-  { image: img("photo-1549465220-1a8b9238cd48", 700), caption: "Birthday hamper for a client in Maitama" },
+  { image: img("photo-1513201099705-a9746e1e201f", 700), caption: "Birthday hamper for a client in Maitama" },
   { image: img("photo-1607344645866-009c320b63e0", 700), caption: "Wedding set delivered to Asokoro" },
-  { image: img("photo-1561181286-d3fee7d55364", 700), caption: "Just-because bouquet box, Wuse" },
+  { image: img("photo-1608755728617-aefab37d2edd", 700), caption: "Just-because bouquet box, Wuse" },
   { image: img("photo-1522673607200-164d1b6ce486", 700), caption: "Bridal shower gift, Gwarinpa" },
-  { image: img("photo-1513885535751-8b9238bd345a", 700), caption: "Corporate hampers for a partner brand" },
-  { image: img("photo-1535254973040-607b474cb50d", 700), caption: "Celebration tower, Garki" },
-  { image: img("photo-1607083206968-13611e3d76db", 700), caption: "Signature custom hamper, Jabi" },
+  { image: img("photo-1481437156560-3205f6a55735", 700), caption: "Corporate hampers for a partner brand" },
+  { image: img("photo-1512909006721-3d6018887383", 700), caption: "Celebration tower, Garki" },
+  { image: img("photo-1578985545062-69928b1d9587", 700), caption: "Signature custom hamper, Jabi" },
   { image: img("photo-1519681393784-d120267933ba", 700), caption: "Golden anniversary hamper, Maitama" },
 ];

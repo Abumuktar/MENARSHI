@@ -14,15 +14,16 @@
   --color-coral: #ee8595;
   --color-cream: #fffaf9;
 
-  --font-display: "DM Serif Display", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-script: "Great Vibes", cursive;
+  /* One clean sans everywhere — Gargadi-style */
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-script: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 :root {
-  --display: "DM Serif Display", Georgia, serif;
-  --body: "DM Sans", system-ui, sans-serif;
-  --script: "Great Vibes", cursive;
+  --display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --script: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 @layer base {
@@ -38,11 +39,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Bold, tightly-tracked headings — the clean Gargadi look */
   h1, h2, h3, h4, h5 {
     font-family: var(--display);
-    font-weight: 400;
+    font-weight: 700;
     color: var(--color-forest);
-    line-height: 1.1;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
@@ -52,9 +55,9 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--display); }
+  .font-display { font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; }
   .font-body { font-family: var(--body); }
-  .font-script { font-family: var(--script); }
+  .font-script { font-family: var(--script); font-weight: 700; font-style: italic; letter-spacing: -0.01em; }
 
   .container-px {
     padding-left: 1.25rem;

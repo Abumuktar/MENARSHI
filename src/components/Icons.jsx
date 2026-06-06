@@ -41,6 +41,11 @@ export function Icon({ name, className = "h-7 w-7" }) {
         <circle cx="19" cy="17" r="1.4" />
       </>
     ),
+    arrow: (
+      <>
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </>
+    ),
   };
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>

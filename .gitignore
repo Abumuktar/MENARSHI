@@ -22,3 +22,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# local-only assets (personal files dropped into public/, not part of the site)
+/public/Downloads

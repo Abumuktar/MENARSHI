@@ -11,111 +11,100 @@ export default function Home() {
 
   return (
     <>
-      {/* ---------- HERO (full-bleed immersive) ---------- */}
-      <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden">
-        {/* Background image with slow Ken Burns zoom */}
-        <div className="absolute inset-0 -z-10">
+      {/* ---------- HERO (clean, centered — Gargadi-style) ---------- */}
+      <section className="relative isolate flex min-h-[88vh] items-center justify-center overflow-hidden bg-cream px-6 py-28 text-center md:py-32">
+        {/* Faint background image — kept as a soft mood, not a backdrop you read over */}
+        <div className="absolute inset-0 -z-20">
           <img
             src="/images/bento_main.png"
-            alt="A beautifully curated Meenarshi's gift hamper"
+            alt=""
+            aria-hidden="true"
             className="animate-kenburns h-full w-full object-cover object-center"
           />
         </div>
-        {/* Overlays: soft white scrim for legibility (lighter toward the image) */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cream/95 via-cream/75 to-cream/25" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-cream/60 via-transparent to-cream/30" />
+        {/* Strong cream scrim so the image stays faint and the text is crisp */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(255,250,249,0.94) 0%, rgba(255,250,249,0.86) 55%, rgba(255,250,249,0.74) 100%)",
+          }}
+        />
+        {/* Subtle rose dot grid */}
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(194,93,114,0.10) 2px, transparent 2px)",
+            backgroundSize: "60px 60px",
+            backgroundPosition: "10px 10px",
+          }}
+        />
+        {/* Soft brand glow blobs */}
+        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-coral/20 blur-[120px]" />
 
-        <div className="container-px mx-auto w-full max-w-7xl py-24">
-          <div className="max-w-2xl">
-            <p
-              className="reveal mb-7 inline-flex items-center gap-2.5 rounded-full border border-rose/20 bg-cream/70 px-4 py-2 font-body text-[0.7rem] font-bold uppercase tracking-[0.22em] text-rose shadow-sm backdrop-blur-md"
-              style={{ animationDelay: "0.05s" }}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-softpulse absolute inline-flex h-full w-full rounded-full bg-coral" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
-              </span>
-              Premium gifts &amp; hampers · {site.city}
-            </p>
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
+          <p
+            className="reveal mb-7 inline-flex items-center gap-2.5 rounded-full border border-rose/20 bg-cream/80 px-4 py-2 font-body text-[0.7rem] font-bold uppercase tracking-[0.22em] text-rose shadow-sm backdrop-blur-md"
+            style={{ animationDelay: "0.05s" }}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-softpulse absolute inline-flex h-full w-full rounded-full bg-coral" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
+            </span>
+            Premium gifts &amp; hampers · {site.city}
+          </p>
 
-            <h1
-              className="reveal font-display leading-[1.0] text-forest [text-shadow:0_1px_18px_rgba(255,250,249,0.6)]"
-              style={{ animationDelay: "0.15s" }}
-            >
-              <span className="block text-[3.2rem] sm:text-7xl lg:text-[5.4rem]">
-                Meenarshi&rsquo;s
-              </span>
-              <span className="mt-1 block italic text-rose text-[2.4rem] sm:text-6xl lg:text-[4.2rem]">
-                Gift Gallery
-              </span>
-            </h1>
+          <h1
+            className="reveal font-display text-[2.6rem] leading-[1.08] text-forest sm:text-6xl lg:text-[4.25rem]"
+            style={{ animationDelay: "0.15s" }}
+          >
+            Curated gifts for{" "}
+            <span className="relative whitespace-nowrap text-rose">
+              every occasion
+              <span className="absolute inset-x-0 bottom-1.5 -z-10 h-3 rounded bg-coral/40 md:bottom-2.5" />
+            </span>
+          </h1>
 
-            <p
-              className="reveal mt-7 max-w-lg font-body text-lg font-normal leading-relaxed text-forest/75 md:text-xl"
-              style={{ animationDelay: "0.3s" }}
-            >
-              {site.tagline} {site.subtagline}
-            </p>
+          <p
+            className="reveal mt-6 max-w-xl font-body text-base font-normal leading-relaxed text-forest/70 md:text-lg"
+            style={{ animationDelay: "0.3s" }}
+          >
+            {site.subtagline} Hand-curated, beautifully packaged, and made
+            personal for the moments that matter.
+          </p>
 
-            <div
-              className="reveal mt-10 flex flex-wrap gap-3"
-              style={{ animationDelay: "0.42s" }}
+          <div
+            className="reveal mt-9 flex flex-wrap justify-center gap-3"
+            style={{ animationDelay: "0.42s" }}
+          >
+            <Button href="/shop" size="lg" className="shine">
+              Shop Our Collections
+              <Icon name="arrow" className="h-4 w-4" />
+            </Button>
+            <Button
+              as="a"
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="lg"
             >
-              <Button href="/shop" size="lg" className="shine">
-                Shop Our Collections
-              </Button>
-              <Button
-                as="a"
-                href={waLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                size="lg"
-              >
-                <WhatsAppIcon className="h-4 w-4" />
-                Order via WhatsApp
-              </Button>
-            </div>
-
-            {/* Feature chips with icons */}
-            <div
-              className="reveal mt-12 flex flex-wrap items-center gap-2.5"
-              style={{ animationDelay: "0.54s" }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-rose/15 bg-cream/70 px-3.5 py-2 font-body text-xs font-normal text-forest shadow-sm backdrop-blur-md">
-                <Stars className="scale-75 origin-left" />
-                <span className="font-bold text-forest">100+</span> clients
-              </span>
-              {[
-                { icon: "sparkle", label: "Hand-curated" },
-                { icon: "box", label: "Premium packaging" },
-                { icon: "truckFast", label: "Same-day Abuja delivery" },
-              ].map((f) => (
-                <span
-                  key={f.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-rose/15 bg-cream/70 px-3.5 py-2 font-body text-xs font-normal text-forest shadow-sm backdrop-blur-md transition-colors hover:bg-cream"
-                >
-                  <Icon name={f.icon} className="h-4 w-4 text-rose" />
-                  {f.label}
-                </span>
-              ))}
-            </div>
+              <WhatsAppIcon className="h-4 w-4" />
+              Order via WhatsApp
+            </Button>
           </div>
-        </div>
 
-        {/* Scroll cue */}
-        <a
-          href="#featured"
-          className="group absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-forest/50 transition-colors hover:text-forest md:flex"
-          aria-label="Scroll to content"
-        >
-          <span className="font-body text-[0.6rem] font-bold uppercase tracking-[0.3em]">
-            Scroll
-          </span>
-          <span className="flex h-9 w-5 items-start justify-center rounded-full border border-forest/30 p-1">
-            <span className="animate-float h-1.5 w-1.5 rounded-full bg-forest/60" />
-          </span>
-        </a>
+          <p
+            className="reveal mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-body text-xs font-normal text-forest/60"
+            style={{ animationDelay: "0.54s" }}
+          >
+            <Stars className="scale-90" />
+            <span className="font-bold text-forest">100+ happy clients</span>
+            <span aria-hidden="true">·</span>
+            <span>Same-day Abuja delivery</span>
+          </p>
+        </div>
       </section>
 
       {/* ---------- OCCASIONS ---------- */}

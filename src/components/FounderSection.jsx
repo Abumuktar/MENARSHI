@@ -18,12 +18,12 @@ export default function FounderSection({ showLink = true, className = "" }) {
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-coral/15 blur-[90px]" />
 
         {/* Portrait */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-4 border-blush shadow-xl">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-4 border-blush bg-gradient-to-b from-blush to-cream shadow-xl">
           <img
             src={founder.image}
             alt={`${founder.name}, ${founder.role} of Meenarshi's Gift Gallery`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-105"
           />
           {/* Name plate */}
           <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-cream/40 bg-forest/85 px-4 py-3 text-cream backdrop-blur-sm">
