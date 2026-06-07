@@ -10,11 +10,15 @@ export const site = {
   tagline: "Curated gifts for every occasion.",
   subtagline: "Premium hampers & personalized gifts delivered across Abuja.",
   city: "Abuja, Nigeria",
+  address: "Kingfem Plaza, GA247, Phase 11, Ground Floor, Suite 0033, Abuja",
+  mapQuery: "Kingfem Plaza, Abuja, Nigeria",
+  mapZoom: 16,
   instagram: "@meenarshisgiftgallery",
   instagramUrl: "https://instagram.com/meenarshisgiftgallery",
   email: "hello@meenarshisgiftgallery.com",
-  // Replace with the real WhatsApp business number (international format, no +).
-  whatsapp: "2348000000000",
+  phone: "+234 707 000 0111",
+  // WhatsApp business number, international format, no “+”.
+  whatsapp: "2347070000111",
   areas: ["Wuse", "Maitama", "Gwarinpa", "Jabi", "Garki", "Asokoro"],
   hours: "Mon – Sat · 9:00am – 7:00pm",
 };

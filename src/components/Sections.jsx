@@ -362,6 +362,116 @@ export function FaqSection() {
   );
 }
 
+/* Find us — branded map + location card */
+export function MapSection() {
+  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(
+    site.mapQuery
+  )}&z=${site.mapZoom || 12}&output=embed`;
+  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    site.mapQuery
+  )}`;
+
+  return (
+    <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
+      <SectionHeading
+        eyebrow="Find us"
+        title="Visit the gallery"
+        subtitle="Proudly based in Abuja — and delivering citywide. Drop a pin, or message us and we'll bring the gift to your door."
+      />
+
+      <Reveal className="mt-12 grid overflow-hidden rounded-[2rem] border border-rose/10 bg-cream shadow-sm md:grid-cols-[0.9fr_1.1fr]">
+        {/* Info */}
+        <div className="flex flex-col gap-6 p-7 sm:p-9 md:p-10">
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blush text-rose">
+              <Icon name="pin" className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="font-body text-xs font-bold uppercase tracking-[0.18em] text-rose">
+                Our location
+              </h3>
+              <p className="mt-1 font-display text-lg text-forest">
+                {site.address}
+              </p>
+              <p className="mt-1 font-body text-sm font-normal leading-relaxed text-forest/65">
+                Delivering across {site.areas.join(", ")} &amp; beyond.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blush text-rose">
+              <Icon name="clock" className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="font-body text-xs font-bold uppercase tracking-[0.18em] text-rose">
+                Opening hours
+              </h3>
+              <p className="mt-1 font-body text-sm font-normal text-forest/80">
+                {site.hours}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blush text-rose">
+              <WhatsAppIcon className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="font-body text-xs font-bold uppercase tracking-[0.18em] text-rose">
+                Call or WhatsApp
+              </h3>
+              <a
+                href={`tel:${site.phone.replace(/\s/g, "")}`}
+                className="mt-1 block font-display text-lg text-forest transition-colors hover:text-rose"
+              >
+                {site.phone}
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button
+              as="a"
+              href={directions}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Icon name="directions" className="h-4 w-4" />
+              Get directions
+            </Button>
+            <Button
+              as="a"
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              className="w-full sm:w-auto"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Message us
+            </Button>
+          </div>
+        </div>
+
+        {/* Map */}
+        <div className="relative min-h-[300px] border-t border-rose/10 md:min-h-full md:border-l md:border-t-0">
+          <iframe
+            title={`${site.name} — ${site.city}`}
+            src={mapEmbed}
+            className="absolute inset-0 h-full w-full"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 export function InstagramGlyph({ className = "h-5 w-5" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">

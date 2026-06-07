@@ -45,7 +45,15 @@ export default function Footer() {
               Get in touch
             </h3>
             <ul className="mt-5 space-y-3 font-body text-sm font-normal text-cream/80">
-              <li>{site.city}</li>
+              <li>{site.address}</li>
+              <li>
+                <a
+                  href={`tel:${site.phone.replace(/\s/g, "")}`}
+                  className="hover:text-cream"
+                >
+                  {site.phone}
+                </a>
+              </li>
               <li>
                 <a href={`mailto:${site.email}`} className="hover:text-cream">
                   {site.email}

@@ -45,6 +45,18 @@ export default function Contact() {
 
             <InfoCard>
               <h3 className="font-body text-xs font-bold uppercase tracking-wider text-rose">
+                Call or WhatsApp
+              </h3>
+              <a
+                href={`tel:${site.phone.replace(/\s/g, "")}`}
+                className="mt-1 block font-body text-sm text-forest hover:text-rose"
+              >
+                {site.phone}
+              </a>
+            </InfoCard>
+
+            <InfoCard>
+              <h3 className="font-body text-xs font-bold uppercase tracking-wider text-rose">
                 Email
               </h3>
               <a
@@ -60,7 +72,7 @@ export default function Contact() {
                 Location
               </h3>
               <p className="mt-1 font-body text-sm font-normal text-forest/80">
-                Based in {site.city} — delivering citywide across{" "}
+                {site.address} — delivering citywide across{" "}
                 {site.areas.join(", ")} &amp; beyond.
               </p>
             </InfoCard>
@@ -108,10 +120,14 @@ export default function Contact() {
       <section className="container-px mx-auto max-w-7xl pb-24">
         <div className="overflow-hidden rounded-[2rem] border border-rose/10">
           <iframe
-            title="Meenarshi's Gift Gallery — Abuja"
-            src="https://www.google.com/maps?q=Abuja,Nigeria&output=embed"
+            title={`${site.name} — ${site.city}`}
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              site.mapQuery
+            )}&z=${site.mapZoom || 12}&output=embed`}
             className="h-80 w-full"
+            style={{ border: 0 }}
             loading="lazy"
+            allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>

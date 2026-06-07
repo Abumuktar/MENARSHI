@@ -6,6 +6,9 @@ import {
   Gift,
   PenLine,
   ArrowRight,
+  MapPin,
+  Clock,
+  Navigation,
 } from "lucide-react";
 
 /*
@@ -21,6 +24,9 @@ const map = {
   gift: Gift,
   pen: PenLine,
   arrow: ArrowRight,
+  pin: MapPin,
+  clock: Clock,
+  directions: Navigation,
 };
 
 export function Icon({ name, className = "h-7 w-7", strokeWidth = 1.75 }) {
