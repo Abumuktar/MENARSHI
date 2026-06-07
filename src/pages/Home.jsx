@@ -19,8 +19,8 @@ export default function Home() {
 
   return (
     <>
-      {/* ---------- HERO (clean, centered — Gargadi-style) ---------- */}
-      <section className="relative isolate flex min-h-[88vh] items-center justify-center overflow-hidden bg-cream px-6 py-28 text-center md:py-32">
+      {/* ---------- HERO (clean, centered — fits one screen) ---------- */}
+      <section className="relative isolate flex min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden bg-cream px-6 py-10 text-center md:py-14">
         {/* Faint background image — kept as a soft mood, not a backdrop you read over */}
         <div className="absolute inset-0 -z-20">
           <img
@@ -30,12 +30,12 @@ export default function Home() {
             className="animate-kenburns h-full w-full object-cover object-center"
           />
         </div>
-        {/* Strong cream scrim so the image stays faint and the text is crisp */}
+        {/* Strong white-cream scrim — clean, bright hero with the photo as a faint mood */}
         <div
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(255,250,249,0.94) 0%, rgba(255,250,249,0.86) 55%, rgba(255,250,249,0.74) 100%)",
+              "radial-gradient(ellipse at center, rgba(255,252,251,0.97) 0%, rgba(255,252,251,0.92) 50%, rgba(255,252,251,0.84) 100%)",
           }}
         />
         {/* Subtle rose dot grid */}
@@ -48,8 +48,10 @@ export default function Home() {
             backgroundPosition: "10px 10px",
           }}
         />
-        {/* Soft brand glow blobs */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-coral/20 blur-[120px]" />
+        {/* Vibrant, gently drifting glow blobs */}
+        <div className="animate-drift pointer-events-none absolute -top-24 left-1/2 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-coral/25 blur-[120px]" />
+        <div className="animate-bob pointer-events-none absolute bottom-10 left-[12%] -z-10 h-48 w-48 rounded-full bg-gold/25 blur-[90px]" />
+        <div className="animate-drift pointer-events-none absolute right-[10%] top-1/3 -z-10 h-56 w-56 rounded-full bg-rose/20 blur-[100px]" />
 
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
           <p
@@ -64,18 +66,30 @@ export default function Home() {
           </p>
 
           <h1
-            className="reveal font-display text-[2.6rem] leading-[1.08] text-forest sm:text-6xl lg:text-[4.25rem]"
+            className="reveal font-display leading-[1.02] [text-shadow:0_1px_20px_rgba(255,250,249,0.85)]"
             style={{ animationDelay: "0.15s" }}
           >
-            Curated gifts for{" "}
-            <span className="relative whitespace-nowrap text-rose">
-              every occasion
-              <span className="absolute inset-x-0 bottom-1.5 -z-10 h-3 rounded bg-coral/40 md:bottom-2.5" />
+            <span className="block text-gradient-warm text-[3rem] sm:text-7xl lg:text-[5rem]">
+              Meenarshi&rsquo;s
+            </span>
+            <span className="mt-1 block text-forest text-[2.4rem] sm:text-6xl lg:text-[3.6rem]">
+              Gift Gallery
             </span>
           </h1>
 
           <p
-            className="reveal mt-6 max-w-xl font-body text-base font-normal leading-relaxed text-forest/70 md:text-lg"
+            className="reveal mt-5 font-display text-xl leading-snug text-forest/90 [text-shadow:0_1px_14px_rgba(255,250,249,0.9)] sm:text-2xl md:text-3xl"
+            style={{ animationDelay: "0.24s" }}
+          >
+            Curated gifts for{" "}
+            <span className="relative inline-block whitespace-nowrap text-rose">
+              every occasion
+              <span className="bg-brand-gradient absolute -bottom-1.5 inset-x-0 h-1.5 rounded-full md:-bottom-2 md:h-2" />
+            </span>
+          </p>
+
+          <p
+            className="reveal mt-6 max-w-xl font-body text-base font-medium leading-relaxed text-forest/80 [text-shadow:0_1px_14px_rgba(255,250,249,0.9)] md:text-lg"
             style={{ animationDelay: "0.3s" }}
           >
             {site.subtagline} Hand-curated, beautifully packaged, and made
@@ -217,9 +231,9 @@ export default function Home() {
 
       {/* ---------- FINAL CTA ---------- */}
       <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
-        <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-rose px-8 py-16 text-center text-cream md:px-16 md:py-20">
-          <div className="animate-drift pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cream/10" />
-          <div className="animate-drift pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-forest/20" />
+        <Reveal className="bg-brand-gradient-warm animate-gradient relative overflow-hidden rounded-[2.5rem] px-8 py-16 text-center text-cream shadow-xl shadow-rose/30 md:px-16 md:py-20">
+          <div className="animate-bob pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cream/15" />
+          <div className="animate-drift pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-forest/25" />
           <h2 className="relative font-display text-3xl text-cream md:text-5xl">
             Ready to send something unforgettable?
           </h2>

@@ -19,13 +19,13 @@ export function Button({
   };
   const variants = {
     primary:
-      "bg-rose text-cream shadow-sm hover:bg-rose-deep hover:shadow-md hover:-translate-y-0.5",
+      "bg-brand-gradient text-cream shadow-md shadow-rose/30 hover:shadow-lg hover:shadow-rose/40 hover:-translate-y-0.5 hover:brightness-105",
     secondary:
-      "border border-forest/30 bg-transparent text-forest hover:border-forest hover:bg-forest hover:text-cream",
+      "border border-forest/30 bg-transparent text-forest hover:border-forest hover:bg-forest hover:text-cream hover:-translate-y-0.5",
     light:
-      "bg-cream text-forest shadow-sm hover:bg-blush hover:-translate-y-0.5",
+      "bg-cream text-forest shadow-sm hover:bg-blush hover:-translate-y-0.5 hover:shadow-md",
     outlineLight:
-      "border border-cream/60 text-cream hover:bg-cream hover:text-forest",
+      "border border-cream/60 text-cream hover:bg-cream hover:text-forest hover:-translate-y-0.5",
   };
   const cls = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
 

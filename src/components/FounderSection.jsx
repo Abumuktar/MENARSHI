@@ -86,7 +86,7 @@ export default function FounderSection({ showLink = true, className = "" }) {
                   <CountUp
                     to={to}
                     suffix={suffix}
-                    className="block font-display text-2xl text-rose md:text-3xl"
+                    className="text-gradient block font-display text-2xl md:text-3xl"
                   />
                   <span className="mt-1 block font-body text-[0.68rem] font-bold uppercase tracking-[0.12em] text-forest/60">
                     {s.label}

@@ -173,7 +173,7 @@ export function StatsBand() {
               <CountUp
                 to={s.to}
                 suffix={s.suffix}
-                className="mt-4 font-display text-4xl text-forest md:text-5xl"
+                className="text-gradient mt-4 font-display text-4xl md:text-5xl"
               />
               <span className="mt-1.5 font-body text-xs font-bold uppercase tracking-[0.14em] text-forest/60">
                 {s.label}
@@ -220,9 +220,9 @@ export function ProcessSteps() {
           <Reveal
             key={s.title}
             delay={i * 120}
-            className="relative flex flex-col items-center text-center"
+            className="group relative flex flex-col items-center text-center"
           >
-            <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-rose text-cream shadow-lg shadow-rose/30">
+            <span className="bg-brand-gradient relative z-10 flex h-14 w-14 items-center justify-center rounded-full text-cream shadow-lg shadow-rose/30 transition-transform duration-300 group-hover:scale-110">
               <Icon name={s.icon} />
               <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-cream bg-forest font-body text-[0.7rem] font-bold text-cream">
                 {i + 1}
@@ -253,7 +253,7 @@ export function Marquee() {
   return (
     <section
       aria-hidden="true"
-      className="marquee-paused overflow-hidden border-y border-rose-deep/30 bg-rose py-4"
+      className="bg-brand-gradient-warm animate-gradient marquee-paused overflow-hidden py-4"
     >
       <div className="flex w-max animate-marquee whitespace-nowrap">
         {row.map((it, i) => (
@@ -262,7 +262,7 @@ export function Marquee() {
             className="mx-7 inline-flex items-center gap-7 font-display text-lg text-cream md:text-2xl"
           >
             {it}
-            <span className="text-coral">✦</span>
+            <span className="text-cream/70">✦</span>
           </span>
         ))}
       </div>
