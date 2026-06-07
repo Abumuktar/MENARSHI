@@ -15,7 +15,7 @@ export const site = {
   mapZoom: 16,
   instagram: "@meenarshisgiftgallery",
   instagramUrl: "https://instagram.com/meenarshisgiftgallery",
-  email: "hello@meenarshisgiftgallery.com",
+  email: "meenarshisgiftgallary@gmail.com",
   phone: "+234 707 000 0111",
   // WhatsApp business number, international format, no “+”.
   whatsapp: "2347070000111",
