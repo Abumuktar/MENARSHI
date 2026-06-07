@@ -18,27 +18,27 @@ export function PageHero({ eyebrow, title, subtitle, script }) {
           backgroundSize: "26px 26px",
         }}
       />
-      <div className="container-px relative mx-auto max-w-4xl py-20 text-center md:py-28">
+      <Reveal className="container-px relative mx-auto max-w-4xl py-16 text-center sm:py-20 md:py-28">
         {eyebrow && (
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-rose/25 bg-cream/80 px-4 py-1.5 font-body text-xs font-bold uppercase tracking-[0.25em] text-rose shadow-sm backdrop-blur">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-rose/25 bg-cream/80 px-4 py-1.5 font-body text-[0.7rem] font-bold uppercase tracking-[0.22em] text-rose shadow-sm backdrop-blur sm:text-xs sm:tracking-[0.25em]">
             <span className="h-1.5 w-1.5 rounded-full bg-coral" />
             {eyebrow}
           </p>
         )}
-        <h1 className="font-display text-4xl leading-[1.05] text-forest md:text-6xl">
+        <h1 className="font-display text-[2.25rem] leading-[1.05] text-forest sm:text-5xl md:text-6xl">
           {title}
         </h1>
         {script && (
-          <p className="mt-2 font-display text-2xl italic text-rose md:text-3xl">
+          <p className="mt-2 font-display text-xl italic text-rose sm:text-2xl md:text-3xl">
             {script}
           </p>
         )}
         {subtitle && (
-          <p className="mx-auto mt-5 max-w-2xl font-body text-base font-normal leading-relaxed text-forest/70 md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl font-body text-sm font-normal leading-relaxed text-forest/70 sm:text-base md:text-lg">
             {subtitle}
           </p>
         )}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -46,16 +46,16 @@ export function PageHero({ eyebrow, title, subtitle, script }) {
 /* Horizontal occasions strip */
 export function OccasionsStrip() {
   return (
-    <section className="border-y border-rose/10 bg-cream py-10">
+    <section className="border-y border-rose/10 bg-cream py-8 md:py-10">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="flex snap-x gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-6 md:gap-5 md:overflow-visible">
+        <Reveal className="no-scrollbar -mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-1 md:mx-0 md:grid md:grid-cols-6 md:gap-5 md:overflow-visible md:px-0">
           {occasions.map((o) => (
             <Link
               key={o.key}
               to={`/shop?occasion=${o.key}`}
-              className="group flex min-w-[120px] flex-1 snap-start flex-col items-center gap-3 rounded-2xl border border-transparent bg-blush/60 px-4 py-6 text-center transition-all hover:-translate-y-1 hover:border-rose/20 hover:bg-blush"
+              className="group flex min-w-[108px] flex-1 snap-start flex-col items-center gap-2.5 rounded-2xl border border-transparent bg-blush/60 px-4 py-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-rose/20 hover:bg-blush hover:shadow-md md:gap-3 md:py-6"
             >
-              <span className="text-3xl transition-transform group-hover:scale-110">
+              <span className="text-3xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                 {o.emoji}
               </span>
               <span className="font-body text-sm font-bold text-forest">
@@ -63,7 +63,7 @@ export function OccasionsStrip() {
               </span>
             </Link>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -72,18 +72,18 @@ export function OccasionsStrip() {
 /* Why Meenarshi's — value props */
 export function ValueProps() {
   return (
-    <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
+    <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
       <SectionHeading
         eyebrow="Why Meenarshi's"
         title="Gifting, elevated"
         subtitle="Every order is handled with the same care we'd give our own — from the first message to the moment it's unwrapped."
       />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         {valueProps.map((v, i) => (
           <Reveal
             key={v.title}
             delay={i * 90}
-            className="group rounded-2xl border border-rose/10 bg-cream p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-rose/20 hover:shadow-lg"
+            className="group rounded-2xl border border-rose/10 bg-cream p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-rose/20 hover:shadow-lg sm:p-7"
           >
             <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-blush text-rose transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
               <Icon name={v.icon} />
@@ -102,21 +102,23 @@ export function ValueProps() {
 /* Instagram feed strip */
 export function InstagramStrip() {
   return (
-    <section className="bg-blush py-20 md:py-24">
+    <section className="bg-blush py-16 md:py-24">
       <div className="container-px mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="On the gram"
           title="Follow the gallery"
           subtitle={`Follow us for daily inspo ${site.instagram}`}
         />
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 lg:grid-cols-6">
           {gallery.slice(0, 6).map((g, i) => (
-            <a
+            <Reveal
+              as="a"
               key={i}
+              delay={(i % 3) * 80}
               href={site.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-xl bg-cream"
+              className="group relative block aspect-square overflow-hidden rounded-xl bg-cream"
             >
               <img
                 src={g.image}
@@ -127,7 +129,7 @@ export function InstagramStrip() {
               <span className="absolute inset-0 flex items-center justify-center bg-forest/0 text-cream opacity-0 transition-all group-hover:bg-forest/40 group-hover:opacity-100">
                 <InstagramGlyph className="h-7 w-7" />
               </span>
-            </a>
+            </Reveal>
           ))}
         </div>
         <div className="mt-10 text-center">
@@ -165,9 +167,9 @@ export function StatsBand() {
             <Reveal
               key={s.label}
               delay={i * 90}
-              className="flex flex-col items-center text-center"
+              className="group flex flex-col items-center text-center"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cream text-rose shadow-sm">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cream text-rose shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-14 sm:w-14">
                 <Icon name={s.icon} />
               </span>
               <CountUp
@@ -207,13 +209,13 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
+    <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
       <SectionHeading
         eyebrow="How it works"
         title="Gifting in three easy steps"
         subtitle="From the first message to the moment it's unwrapped — we handle every detail."
       />
-      <div className="relative mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+      <div className="relative mt-12 grid gap-10 md:mt-16 md:grid-cols-3 md:gap-8">
         {/* connecting line */}
         <div className="pointer-events-none absolute inset-x-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-rose/30 to-transparent md:block" />
         {steps.map((s, i) => (

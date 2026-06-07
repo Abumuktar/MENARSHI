@@ -30,6 +30,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -38,6 +39,9 @@
     font-family: var(--body);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   /* Bold, tightly-tracked headings — the clean Gargadi look */
@@ -63,6 +67,15 @@
   .container-px {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  /* Hide scrollbar on horizontal mobile scrollers (keeps swipe) */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
   @media (min-width: 768px) {
     .container-px { padding-left: 2rem; padding-right: 2rem; }

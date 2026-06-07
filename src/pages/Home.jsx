@@ -55,14 +55,15 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
           <p
-            className="reveal mb-7 inline-flex items-center gap-2.5 rounded-full border border-rose/20 bg-cream/80 px-4 py-2 font-body text-[0.7rem] font-bold uppercase tracking-[0.22em] text-rose shadow-sm backdrop-blur-md"
+            className="reveal mb-5 inline-flex items-center gap-2.5 rounded-full border border-rose/20 bg-cream/80 px-4 py-2 font-body text-[0.68rem] font-bold uppercase tracking-[0.18em] text-rose shadow-sm backdrop-blur-md sm:mb-7 sm:text-[0.7rem] sm:tracking-[0.22em]"
             style={{ animationDelay: "0.05s" }}
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-softpulse absolute inline-flex h-full w-full rounded-full bg-coral" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
             </span>
-            Premium gifts &amp; hampers · {site.city}
+            Premium gifts &amp; hampers
+            <span className="hidden sm:inline">· {site.city}</span>
           </p>
 
           <h1
@@ -97,10 +98,10 @@ export default function Home() {
           </p>
 
           <div
-            className="reveal mt-9 flex flex-wrap justify-center gap-3"
+            className="reveal mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-9 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center"
             style={{ animationDelay: "0.42s" }}
           >
-            <Button href="/shop" size="lg" className="shine">
+            <Button href="/shop" size="lg" className="shine w-full sm:w-auto">
               Shop Our Collections
               <Icon name="arrow" className="h-4 w-4" />
             </Button>
@@ -111,6 +112,7 @@ export default function Home() {
               rel="noopener noreferrer"
               variant="secondary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Order via WhatsApp
@@ -118,7 +120,7 @@ export default function Home() {
           </div>
 
           <p
-            className="reveal mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-body text-xs font-normal text-forest/60"
+            className="reveal mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-body text-xs font-normal text-forest/60 sm:mt-8"
             style={{ animationDelay: "0.54s" }}
           >
             <Stars className="scale-90" />
@@ -137,8 +139,8 @@ export default function Home() {
       <StatsBand />
 
       {/* ---------- FEATURED ---------- */}
-      <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
-        <Reveal className="flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
+      <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
+        <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:items-end">
           <SectionHeading
             align="left"
             eyebrow="Handpicked for you"
@@ -146,13 +148,15 @@ export default function Home() {
             subtitle="A glimpse of our most-loved pieces — each one ready to be made personal."
             className="md:mx-0"
           />
-          <Button href="/shop" variant="secondary" className="shrink-0">
-            View all
-          </Button>
-        </Reveal>
-        <div className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          <Reveal delay={120}>
+            <Button href="/shop" variant="secondary" className="shrink-0">
+              View all
+            </Button>
+          </Reveal>
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
           {featured.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 90}>
+            <Reveal key={p.slug} delay={i * 90} className="h-full">
               <ProductCard product={p} />
             </Reveal>
           ))}
@@ -165,7 +169,7 @@ export default function Home() {
       {/* ---------- BRAND STORY BAND ---------- */}
       <section className="relative overflow-hidden bg-forest text-cream">
         <div className="pointer-events-none absolute -right-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-coral/15 blur-[120px]" />
-        <div className="container-px relative mx-auto grid max-w-7xl items-center gap-12 py-20 md:grid-cols-2 md:py-28">
+        <div className="container-px relative mx-auto grid max-w-7xl items-center gap-8 py-16 md:grid-cols-2 md:gap-12 md:py-28">
           <Reveal className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-cream/20 shadow-2xl">
             <img
               src="/images/brand_story.png"
@@ -178,10 +182,10 @@ export default function Home() {
             <p className="mb-3 font-body text-xs font-bold uppercase tracking-[0.3em] text-coral">
               Our story
             </p>
-            <h2 className="font-display text-3xl text-cream md:text-4xl lg:text-5xl">
+            <h2 className="font-display text-2xl text-cream sm:text-3xl md:text-4xl lg:text-5xl">
               We put the love in every hamper
             </h2>
-            <p className="mt-5 font-body text-base font-normal leading-relaxed text-cream/80">
+            <p className="mt-5 font-body text-sm font-normal leading-relaxed text-cream/80 sm:text-base">
               Founded by {site.founder}, Meenarshi&rsquo;s Gift Gallery began
               with a simple belief — that every occasion deserves a gift as
               special as the moment itself. From our home in Abuja, we curate
@@ -206,10 +210,10 @@ export default function Home() {
       <ValueProps />
 
       {/* ---------- TESTIMONIAL TEASER ---------- */}
-      <section className="bg-blush py-20 md:py-24">
+      <section className="bg-blush py-16 md:py-24">
         <Reveal className="container-px mx-auto max-w-4xl text-center">
           <Stars className="justify-center" />
-          <p className="mt-6 font-display text-2xl italic leading-snug text-forest md:text-3xl lg:text-4xl">
+          <p className="mt-6 font-display text-xl italic leading-snug text-forest sm:text-2xl md:text-3xl lg:text-4xl">
             &ldquo;{testimonials[2].quote}&rdquo;
           </p>
           <p className="mt-6 font-body text-sm font-bold uppercase tracking-widest text-rose">
@@ -230,18 +234,18 @@ export default function Home() {
       <InstagramStrip />
 
       {/* ---------- FINAL CTA ---------- */}
-      <section className="container-px mx-auto max-w-7xl py-20 md:py-28">
-        <Reveal className="bg-brand-gradient-warm animate-gradient relative overflow-hidden rounded-[2.5rem] px-8 py-16 text-center text-cream shadow-xl shadow-rose/30 md:px-16 md:py-20">
+      <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
+        <Reveal className="bg-brand-gradient-warm animate-gradient relative overflow-hidden rounded-[2rem] px-6 py-12 text-center text-cream shadow-xl shadow-rose/30 sm:px-8 sm:py-16 md:rounded-[2.5rem] md:px-16 md:py-20">
           <div className="animate-bob pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cream/15" />
           <div className="animate-drift pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-forest/25" />
-          <h2 className="relative font-display text-3xl text-cream md:text-5xl">
+          <h2 className="relative font-display text-2xl text-cream sm:text-3xl md:text-5xl">
             Ready to send something unforgettable?
           </h2>
-          <p className="relative mx-auto mt-4 max-w-xl font-body font-normal text-cream/90">
+          <p className="relative mx-auto mt-4 max-w-xl font-body text-sm font-normal text-cream/90 sm:text-base">
             Tell us the occasion and we&rsquo;ll curate the perfect gift —
             beautifully packaged and delivered across Abuja.
           </p>
-          <div className="relative mt-8 flex flex-wrap justify-center gap-3">
+          <div className="relative mx-auto mt-8 flex w-full max-w-xs flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
             <Button
               as="a"
               href={waLink()}
@@ -249,11 +253,17 @@ export default function Home() {
               rel="noopener noreferrer"
               variant="light"
               size="lg"
+              className="w-full sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Order via WhatsApp
             </Button>
-            <Button href="/customize" variant="outlineLight" size="lg">
+            <Button
+              href="/customize"
+              variant="outlineLight"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               Customize a gift
             </Button>
           </div>

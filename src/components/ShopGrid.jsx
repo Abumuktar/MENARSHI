@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { products, occasions, occasionCopy } from "@/lib/data";
 import ProductCard from "./ProductCard";
+import Reveal from "./Reveal";
 
 const filters = [{ key: "all", label: "All", emoji: "✨" }, ...occasions];
 
@@ -26,14 +27,14 @@ export default function ShopGrid() {
   return (
     <div className="container-px mx-auto max-w-7xl py-14 md:py-20">
       {/* Filter pills */}
-      <div className="flex flex-wrap justify-center gap-2.5">
+      <div className="no-scrollbar -mx-1 flex snap-x gap-2 overflow-x-auto px-1 pb-1 sm:flex-wrap sm:justify-center sm:gap-2.5 sm:overflow-visible">
         {filters.map((f) => {
           const on = active === f.key;
           return (
             <button
               key={f.key}
               onClick={() => setActive(f.key)}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-5 py-2.5 font-body text-sm font-bold transition-all ${
+              className={`inline-flex shrink-0 snap-start items-center gap-1.5 rounded-full border px-4 py-2.5 font-body text-sm font-bold transition-all sm:px-5 ${
                 on
                   ? "border-rose bg-rose text-cream shadow-sm"
                   : "border-rose/20 bg-cream text-forest hover:border-rose hover:text-rose"
@@ -55,9 +56,11 @@ export default function ShopGrid() {
 
       {/* Grid */}
       {list.length > 0 ? (
-        <div className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {list.map((p) => (
-            <ProductCard key={p.slug} product={p} />
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+          {list.map((p, i) => (
+            <Reveal key={p.slug} delay={(i % 4) * 80} className="h-full">
+              <ProductCard product={p} />
+            </Reveal>
           ))}
         </div>
       ) : (

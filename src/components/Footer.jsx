@@ -4,18 +4,18 @@ import { LogoChip } from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-forest text-cream">
-      <div className="container-px mx-auto max-w-7xl py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="mt-20 bg-forest text-cream md:mt-24">
+      <div className="container-px mx-auto max-w-7xl py-14 md:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2">
             <LogoChip />
             <p className="mt-5 max-w-sm font-body text-sm font-normal leading-relaxed text-cream/70">
               Thoughtfully curated, beautifully delivered. Premium gifts &amp;
               hampers for life&rsquo;s most important occasions — proudly based
               in {site.city}.
             </p>
-            <p className="mt-5 font-script text-3xl text-coral">
+            <p className="mt-5 font-script text-2xl text-coral sm:text-3xl">
               Make every moment memorable.
             </p>
           </div>

@@ -111,9 +111,18 @@ export const valueProps = [
   },
 ];
 
-// Unsplash imagery placeholders — swap for real flat-lay photography at launch.
+// Real, on-brand product photography (local). Swap freely as the catalogue grows.
 const img = (id, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
+
+// Local brand imagery
+const IMG = {
+  hamper: "/images/bento_main.png", // rose hamper basket
+  bloom: "/images/bento_sub1.png", // pink bloom box
+  wedding: "/images/bento_sub2.png", // wedding / newlyweds set
+  bride: "/images/prod_bride_1780574813694.png", // "for the bride" box
+  corporate: "/images/prod_corporate_1780574824968.png", // corporate set
+};
 
 export const products = [
   {
@@ -123,7 +132,7 @@ export const products = [
     price: "₦45,000",
     priceValue: 45000,
     short: "Luxurious treats & a personalised keepsake to make their day.",
-    image: img("photo-1513201099705-a9746e1e201f"),
+    image: IMG.hamper,
   },
   {
     slug: "forever-wedding-set",
@@ -132,7 +141,7 @@ export const products = [
     price: "₦85,000",
     priceValue: 85000,
     short: "A gift as beautiful as their love story — ceremony to honeymoon.",
-    image: img("photo-1607344645866-009c320b63e0"),
+    image: IMG.wedding,
   },
   {
     slug: "bride-to-be-box",
@@ -141,7 +150,7 @@ export const products = [
     price: "₦60,000",
     priceValue: 60000,
     short: "Spoil her with a curated bridal hamper she'll treasure.",
-    image: img("photo-1522673607200-164d1b6ce486"),
+    image: IMG.bride,
   },
   {
     slug: "executive-corporate-hamper",
@@ -150,7 +159,7 @@ export const products = [
     price: "Enquire for Price",
     priceValue: 0,
     short: "Your brand, beautifully wrapped — optional branded packaging.",
-    image: img("photo-1481437156560-3205f6a55735"),
+    image: IMG.corporate,
   },
   {
     slug: "just-because-bouquet-box",
@@ -159,7 +168,7 @@ export const products = [
     price: "₦30,000",
     priceValue: 30000,
     short: "A little reminder that they're loved — no occasion needed.",
-    image: img("photo-1608755728617-aefab37d2edd"),
+    image: IMG.bloom,
   },
   {
     slug: "signature-custom-hamper",
@@ -168,7 +177,7 @@ export const products = [
     price: "From ₦40,000",
     priceValue: 40000,
     short: "Built around your story — choose every detail with us.",
-    image: img("photo-1578985545062-69928b1d9587"),
+    image: IMG.hamper,
   },
   {
     slug: "sweet-celebration-tower",
@@ -177,7 +186,7 @@ export const products = [
     price: "₦52,000",
     priceValue: 52000,
     short: "Layers of indulgence stacked into one show-stopping gift.",
-    image: img("photo-1512909006721-3d6018887383"),
+    image: IMG.bloom,
   },
   {
     slug: "golden-anniversary-hamper",
@@ -186,7 +195,7 @@ export const products = [
     price: "₦70,000",
     priceValue: 70000,
     short: "Celebrate the years with a richly curated keepsake hamper.",
-    image: img("photo-1519681393784-d120267933ba"),
+    image: IMG.wedding,
   },
 ];
 
@@ -196,7 +205,7 @@ export const hampers = [
     name: "The Meenarshi Signature",
     price: "₦95,000",
     desc: "Our flagship hamper — premium chocolates, a scented candle, fine teas, a silk-wrapped keepsake and fresh florals, presented in our signature forest-green box.",
-    image: img("photo-1513201099705-a9746e1e201f", 1000),
+    image: IMG.hamper,
     tags: ["Bestseller", "Premium"],
   },
   {
@@ -204,7 +213,7 @@ export const hampers = [
     name: "The Sweetheart Set",
     price: "₦48,000",
     desc: "Romantic and warm — artisan treats, a handwritten note card, a soft plush and a single preserved rose. Perfect for anniversaries and just-because moments.",
-    image: img("photo-1608755728617-aefab37d2edd", 1000),
+    image: IMG.bloom,
     tags: ["Romance"],
   },
   {
@@ -212,7 +221,7 @@ export const hampers = [
     name: "The Celebration Hamper",
     price: "₦58,000",
     desc: "Bright, joyful and generous — a curated mix of sweets, sparkling drink, balloons and a personalised banner for birthdays worth remembering.",
-    image: img("photo-1512909006721-3d6018887383", 1000),
+    image: IMG.wedding,
     tags: ["Birthday"],
   },
   {
@@ -220,7 +229,7 @@ export const hampers = [
     name: "The Executive Set",
     price: "Custom quote",
     desc: "Corporate gifting done right — premium hampers with optional branded packaging for clients, staff and partners. Volume orders welcome.",
-    image: img("photo-1481437156560-3205f6a55735", 1000),
+    image: IMG.corporate,
     tags: ["Corporate"],
   },
 ];
@@ -282,12 +291,12 @@ export const occasionCopy = {
 };
 
 export const gallery = [
-  { image: img("photo-1513201099705-a9746e1e201f", 700), caption: "Birthday hamper for a client in Maitama" },
-  { image: img("photo-1607344645866-009c320b63e0", 700), caption: "Wedding set delivered to Asokoro" },
-  { image: img("photo-1608755728617-aefab37d2edd", 700), caption: "Just-because bouquet box, Wuse" },
-  { image: img("photo-1522673607200-164d1b6ce486", 700), caption: "Bridal shower gift, Gwarinpa" },
-  { image: img("photo-1481437156560-3205f6a55735", 700), caption: "Corporate hampers for a partner brand" },
-  { image: img("photo-1512909006721-3d6018887383", 700), caption: "Celebration tower, Garki" },
-  { image: img("photo-1578985545062-69928b1d9587", 700), caption: "Signature custom hamper, Jabi" },
-  { image: img("photo-1519681393784-d120267933ba", 700), caption: "Golden anniversary hamper, Maitama" },
+  { image: IMG.hamper, caption: "Birthday hamper for a client in Maitama" },
+  { image: IMG.wedding, caption: "Wedding set delivered to Asokoro" },
+  { image: IMG.bloom, caption: "Just-because bouquet box, Wuse" },
+  { image: IMG.bride, caption: "Bridal shower gift, Gwarinpa" },
+  { image: IMG.corporate, caption: "Corporate hampers for a partner brand" },
+  { image: IMG.hamper, caption: "Celebration tower, Garki" },
+  { image: IMG.bloom, caption: "Signature custom hamper, Jabi" },
+  { image: IMG.wedding, caption: "Golden anniversary hamper, Maitama" },
 ];

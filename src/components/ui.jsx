@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Reveal from "./Reveal";
 
 /* Reusable button — primary (rose), secondary (forest outline), ghost */
 export function Button({
@@ -61,10 +62,10 @@ export function SectionHeading({
 }) {
   const alignCls = align === "center" ? "text-center mx-auto" : "text-left";
   return (
-    <div className={`max-w-2xl ${alignCls} ${className}`}>
+    <Reveal className={`max-w-2xl ${alignCls} ${className}`}>
       {eyebrow && (
         <p
-          className={`mb-3 font-body text-xs font-bold uppercase tracking-[0.3em] ${
+          className={`mb-3 font-body text-[0.7rem] font-bold uppercase tracking-[0.26em] sm:text-xs sm:tracking-[0.3em] ${
             light ? "text-coral" : "text-rose"
           }`}
         >
@@ -72,7 +73,7 @@ export function SectionHeading({
         </p>
       )}
       <h2
-        className={`font-display text-3xl leading-tight md:text-4xl lg:text-5xl ${
+        className={`font-display text-[1.75rem] leading-tight sm:text-3xl md:text-4xl lg:text-5xl ${
           light ? "text-cream" : "text-forest"
         }`}
       >
@@ -80,14 +81,14 @@ export function SectionHeading({
       </h2>
       {subtitle && (
         <p
-          className={`mt-4 font-body text-base font-normal leading-relaxed ${
+          className={`mt-4 font-body text-sm font-normal leading-relaxed sm:text-base ${
             light ? "text-cream/80" : "text-forest/70"
           }`}
         >
           {subtitle}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }
 

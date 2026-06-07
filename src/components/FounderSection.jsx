@@ -19,8 +19,8 @@ function parseStat(value) {
 */
 export default function FounderSection({ showLink = true, className = "" }) {
   return (
-    <section className={`container-px mx-auto max-w-7xl py-20 md:py-28 ${className}`}>
-      <Reveal className="group relative grid items-center gap-10 overflow-hidden rounded-[2.5rem] border border-rose/10 bg-cream p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_18px_50px_rgba(47,74,58,0.08)] transition-shadow duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_28px_70px_rgba(47,74,58,0.12)] md:grid-cols-[0.85fr_1.15fr] md:p-8 lg:p-10">
+    <section className={`container-px mx-auto max-w-7xl py-16 md:py-28 ${className}`}>
+      <Reveal className="group relative grid items-center gap-8 overflow-hidden rounded-[2rem] border border-rose/10 bg-cream p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_18px_50px_rgba(47,74,58,0.08)] transition-shadow duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_28px_70px_rgba(47,74,58,0.12)] sm:p-6 md:grid-cols-[0.85fr_1.15fr] md:gap-10 md:rounded-[2.5rem] md:p-8 lg:p-10">
         {/* soft brand glow */}
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-coral/15 blur-[90px]" />
 
@@ -32,8 +32,8 @@ export default function FounderSection({ showLink = true, className = "" }) {
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-105"
           />
-          {/* Name plate */}
-          <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-cream/40 bg-forest/85 px-4 py-3 text-cream backdrop-blur-sm">
+          {/* Name plate — hidden on mobile so it never covers the portrait */}
+          <div className="absolute inset-x-3 bottom-3 hidden rounded-2xl border border-cream/40 bg-forest/85 px-4 py-3 text-cream backdrop-blur-sm sm:block">
             <p className="font-display text-lg leading-tight">{founder.name}</p>
             <p className="font-body text-[0.7rem] font-bold uppercase tracking-[0.18em] text-coral">
               {founder.role}
@@ -48,7 +48,7 @@ export default function FounderSection({ showLink = true, className = "" }) {
             Meet the founder
           </p>
 
-          <h2 className="font-display text-3xl leading-tight text-forest md:text-4xl lg:text-[2.75rem]">
+          <h2 className="font-display text-2xl leading-tight text-forest sm:text-3xl md:text-4xl lg:text-[2.75rem]">
             {founder.tagline}
           </h2>
 
@@ -98,9 +98,11 @@ export default function FounderSection({ showLink = true, className = "" }) {
           </dl>
 
           {showLink && (
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/founder">Meet Ameenah</Button>
-              <Button href="/about" variant="secondary">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button href="/founder" className="w-full sm:w-auto">
+                Meet Ameenah
+              </Button>
+              <Button href="/about" variant="secondary" className="w-full sm:w-auto">
                 Our story
               </Button>
             </div>
