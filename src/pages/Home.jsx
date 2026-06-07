@@ -7,6 +7,7 @@ import {
   StatsBand,
   ProcessSteps,
   Marquee,
+  FaqSection,
 } from "@/components/Sections";
 import FounderSection from "@/components/FounderSection";
 import ProductCard from "@/components/ProductCard";
@@ -232,6 +233,9 @@ export default function Home() {
 
       {/* ---------- INSTAGRAM ---------- */}
       <InstagramStrip />
+
+      {/* ---------- FAQ ---------- */}
+      <FaqSection />
 
       {/* ---------- FINAL CTA ---------- */}
       <section className="container-px mx-auto max-w-7xl py-16 md:py-28">

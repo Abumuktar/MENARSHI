@@ -45,7 +45,7 @@ export const nav = [
 // ------------------------------------------------------------
 export const founder = {
   name: "Ameenah Dikko Radda",
-  role: "Founder & Lead Curator",
+  role: "Founder & CEO",
   image: "/images/founder.png",
   initials: "AR",
   tagline: "The heart and hands behind every Meenarshi's hamper.",
@@ -276,6 +276,29 @@ export const testimonials = [
     rating: 5,
     quote:
       "Every detail was considered. It felt personal and luxurious. This is my go-to gift shop in Abuja now.",
+  },
+];
+
+export const faqs = [
+  {
+    q: "How do I place an order?",
+    a: "Tap any “Order via WhatsApp” button or use our contact form. There’s no checkout to fuss with — we confirm every order personally and guide you from there.",
+  },
+  {
+    q: "Where do you deliver?",
+    a: "Right across Abuja — Wuse, Maitama, Gwarinpa, Jabi, Garki, Asokoro and beyond. Same-day delivery is available for most areas when you order early.",
+  },
+  {
+    q: "Can I personalise my gift?",
+    a: "Always. Add names, a handwritten note, photos or a brand logo — every hamper is hand-curated to feel personal and unmistakably theirs.",
+  },
+  {
+    q: "Do you offer corporate & bulk gifting?",
+    a: "Yes. We curate branded hampers for clients, staff and events, with optional custom packaging and volume pricing on request.",
+  },
+  {
+    q: "How far ahead should I order?",
+    a: "A little notice lets us curate something truly special — but we’re also known for thoughtful last-minute saves. Message us and we’ll make it work.",
   },
 ];
 

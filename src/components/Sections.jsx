@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { occasions, valueProps, gallery, site } from "@/lib/data";
+import { occasions, valueProps, gallery, site, faqs, waLink } from "@/lib/data";
 import { Icon } from "./Icons";
-import { SectionHeading } from "./ui";
+import { SectionHeading, Button } from "./ui";
+import { WhatsAppIcon } from "./WhatsAppFab";
 import Reveal, { CountUp } from "./Reveal";
 
 /* Page hero used on inner pages */
@@ -267,6 +269,94 @@ export function Marquee() {
             <span className="text-cream/70">✦</span>
           </span>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/* FAQ — clean two-column accordion, fully animated */
+export function FaqSection() {
+  const [openIdx, setOpenIdx] = useState(0);
+  return (
+    <section className="container-px mx-auto max-w-7xl py-16 md:py-28">
+      <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+        {/* Left — intro */}
+        <Reveal>
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-rose/20 bg-blush px-4 py-1.5 font-body text-[0.7rem] font-bold uppercase tracking-[0.22em] text-rose">
+            <span className="h-1.5 w-1.5 rounded-full bg-coral" />
+            Good to know
+          </p>
+          <h2 className="font-display text-[1.75rem] leading-tight text-forest sm:text-3xl md:text-4xl lg:text-5xl">
+            Questions, <span className="text-gradient">answered</span>
+          </h2>
+          <p className="mt-4 font-body text-sm font-normal leading-relaxed text-forest/70 sm:text-base">
+            Everything you need to know about ordering, delivery and making your
+            gift truly personal. Still curious? We&rsquo;re a message away.
+          </p>
+          <div className="mt-7">
+            <Button
+              as="a"
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Chat with us
+            </Button>
+          </div>
+        </Reveal>
+
+        {/* Right — accordion */}
+        <Reveal delay={120} className="flex flex-col gap-3">
+          {faqs.map((f, i) => {
+            const open = openIdx === i;
+            return (
+              <div
+                key={f.q}
+                className={`overflow-hidden rounded-2xl border bg-cream transition-colors duration-300 ${
+                  open ? "border-rose/30 shadow-sm" : "border-rose/10"
+                }`}
+              >
+                <button
+                  onClick={() => setOpenIdx(open ? -1 : i)}
+                  aria-expanded={open}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-display text-base text-forest sm:text-lg"
+                >
+                  {f.q}
+                  <span
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                      open ? "bg-rose text-cream rotate-180" : "bg-blush text-rose"
+                    }`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  className={`grid transition-all duration-300 ease-out ${
+                    open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-5 font-body text-sm font-normal leading-relaxed text-forest/70">
+                      {f.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </Reveal>
       </div>
     </section>
   );
